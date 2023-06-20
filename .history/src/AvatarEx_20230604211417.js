@@ -1,0 +1,82 @@
+import { Avatar, AvatarGroup, Box, Stack, Typography } from '@mui/material'
+import { deepOrange, deepPurple, red } from '@mui/material/colors'
+import React, { useState } from 'react'
+import Person2TwoToneIcon from '@mui/icons-material/Person2TwoTone';
+import Rakesh_Image from "./image/Rakesh_Image.jpeg"
+
+const AvatarEx = () => {
+
+  const [maxState, setMaxState] = useState(3)
+  const getName = (name) =>{
+    return `${name.split(" ")[0][0]}${name.split(" ")[1][0]}${name.split(" ")[2][0]}`
+  }
+
+  return (
+    <Box margin={2}>
+      <Typography variant='h5' color={'secondary'} align='center'>
+        MUI Avatar Example
+      </Typography>
+
+      <Stack direction={'row'} spacing={2} mt={'2rem'} >
+        <Avatar sx={{ width:50, height:50, bgcolor: deepOrange[400] }}> RP </Avatar>
+        <Avatar sx={{ width:60, height:60, bgcolor: deepPurple[400] }}> SP </Avatar>
+        <Avatar sx={{ width:70, height:70, bgcolor: red[300] }}> ZP </Avatar>
+      </Stack>
+
+      <Stack direction={'row'} spacing={2} mt={'2rem'} >
+        <Avatar sx={{ width:50, height:50, bgcolor: deepOrange[400] }} children='RP'/> 
+        <Avatar sx={{ width:60, height:60, bgcolor: deepPurple[400] }} children='SP'/> 
+        <Avatar sx={{ width:70, height:70, bgcolor: red[300] }} children='ZP'/>
+      </Stack>
+
+      {/* Using 'Icons' inside Avatar */}
+      <Stack direction={'row'} spacing={2} mt={'2rem'} >
+        <Avatar sx={{ width:50, height:50, bgcolor: deepOrange[400] }}> 
+          <Person2TwoToneIcon /> 
+        </Avatar>
+        <Avatar sx={{ width:60, height:60, bgcolor: deepPurple[400] }}> 
+          <Person2TwoToneIcon  sx={{ width: 40, height: 40 }}/> 
+        </Avatar>
+        <Avatar sx={{ width:70, height:70, bgcolor: red[300] }}> 
+          <Person2TwoToneIcon fontSize='large' sx={{ width: 50, height: 50 }}/> 
+        </Avatar>
+      </Stack>
+
+      {/* Using Image inside Avatar */}
+      <Stack direction={'row'} spacing={2} mt={'2rem'} >
+        <Avatar variant='rounded' sx={{ width:150, height:150, bgcolor: deepOrange[400] }} src={Rakesh_Image} alt="Rakesh"> </Avatar> 
+      </Stack>
+
+      {/* Using 'max' and 'total' property on Avatar Group */}
+      <Stack direction={'row'} spacing={2} mt={'2rem'} >
+        <AvatarGroup 
+          spacing={1} 
+          max={maxState}
+          onClick={()=>{maxState === 3 ? setMaxState(10): setMaxState(3) }}
+          total={10}
+        >
+          <Avatar sx={{ width:50, height:50, bgcolor: deepOrange[400] }}> 
+            <Person2TwoToneIcon /> 
+          </Avatar>
+          <Avatar sx={{ width:60, height:60, bgcolor: deepPurple[400] }}> 
+            <Person2TwoToneIcon  sx={{ width: 40, height: 40 }}/> 
+          </Avatar>
+          <Avatar sx={{ width:70, height:70, bgcolor: red[300] }}> 
+            <Person2TwoToneIcon fontSize='large' sx={{ width: 50, height: 50 }}/> 
+          </Avatar>
+          <Avatar sx={{ width:70, height:70, bgcolor: red[300] }}> 
+            <Person2TwoToneIcon fontSize='large' sx={{ width: 50, height: 50 }}/> 
+          </Avatar>
+        </AvatarGroup>
+      </Stack>
+
+      {/* Using 'function' inside Avatar */}
+      <Stack direction={'row'} spacing={2} mt={'2rem'} >
+        <Avatar  sx={{ width:40, height:40, bgcolor: deepOrange[400] }} > {getName("Rakesh Shyam Gopal")} </Avatar> 
+      </Stack>
+    </Box>
+
+  )
+}
+
+export default AvatarEx

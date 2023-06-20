@@ -1,0 +1,19 @@
+import { Box, SpeedDial, SpeedDialAction } from '@mui/material'
+import React from 'react'
+import HomeIcon from '@mui/icons-material/Home';
+import StarsTwoToneIcon from '@mui/icons-material/StarsTwoTone';
+import AddCircleTwoToneIcon from '@mui/icons-material/AddCircleTwoTone';
+
+const SpeedDialEx = () => {
+  return (
+    <Box>
+      <SpeedDial ariaLabel='speedDial' icon={<AddCircleIcon/>}>
+        <SpeedDialAction tooltipTitle='Home' icon=<HomeIcon/> >  </SpeedDialAction>
+        <SpeedDialAction tooltipTitle='Rating' icon=<StarsTwoToneIcon/> >  </SpeedDialAction>
+        <SpeedDialAction tooltipTitle='Accordion' icon=<HomeIcon/> >  </SpeedDialAction>
+      </SpeedDial>
+    </Box>
+  )
+}
+
+export default SpeedDialEx

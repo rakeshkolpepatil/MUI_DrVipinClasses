@@ -1,0 +1,14 @@
+import { Box, Typography } from '@mui/material'
+import React from 'react'
+
+const CheckboxEx = () => {
+  return (
+    <Box>
+      <Typography>
+        This is CheckBox Example
+      </Typography>
+    </Box>
+  )
+}
+
+export default CheckboxEx
